@@ -3,11 +3,12 @@ import { StyleSheet, View, TextInput } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import defualtStyle from '../config/styles';
 
-function AppTextInput({ icon, ...otherProps }) {
+function AppTextInput({ icon, width ='100%', ...otherProps }) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { width }]}>
       {icon && <MaterialCommunityIcons name={icon} size={20} color={defualtStyle.colors.medium} style={styles.icon} />}
       <TextInput 
+        placeholderTextColor={defualtStyle.colors.medium}
         style={defualtStyle.text}
         {...otherProps}
       />
@@ -20,7 +21,6 @@ const styles = StyleSheet.create({
     backgroundColor: defualtStyle.colors.light,
     borderRadius: 25,
     flexDirection: 'row',
-    width: '100%',
     padding: 15,
     marginVertical: 10
   },
