@@ -10,7 +10,7 @@ function ImageInput({imageUri, OnChangeImage}) {
   },[])
 
   const reqPermission = async () => {
-    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync();
+    const { granted } = await ImagePicker.requestCameraPermissionsAsync();
     if(!granted) alert('You need to enable permission')
   }
   const handlePress = () => {
@@ -44,11 +44,12 @@ function ImageInput({imageUri, OnChangeImage}) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.black,
+    backgroundColor: colors.light,
     borderRadius: 15,
     height: 100,
     width: 100,
     justifyContent: 'center',
+    alignItems: 'center'
   },
   image: {
     width: '100%',
